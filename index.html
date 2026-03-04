@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Endometriose Pélvica: Guia Essencial</title>
+    <title>Endometriose Pélvica: Guia Interativo</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-pink: #FF1493;
-            --light-pink: #ff7eb3;
-            --primary-purple: #8A2BE2;
+            --deep-purple: #8A2BE2;
             --dark-purple: #4B0082;
-            --text-dark: #333333;
-            --text-light: #555555;
-            --bg-light: #f9f9fc;
+            --text-dark: #2d3436;
+            --text-light: #636e72;
+            --bg-light: #fefeff;
+            --card-bg: #ffffff;
+            --shadow: 0 10px 30px rgba(138, 43, 226, 0.1);
+            --transition: all 0.3s ease-in-out;
         }
 
         * {
@@ -21,239 +23,437 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
+            -webkit-font-smoothing: antialiased;
         }
 
         body {
             background-color: var(--bg-light);
             color: var(--text-dark);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Tipografia */
-        h1, h2, h3 {
-            font-weight: 700;
-        }
+        /* Destaques de Texto */
+        strong { font-weight: 700; color: var(--dark-purple); }
+        .highlight-pink { color: var(--primary-pink); font-weight: 900; }
 
-        .highlight {
-            color: var(--primary-pink);
-            font-weight: 900;
-        }
-
-        /* Header / Hero Section */
+        /* --- HEADER / HERO --- */
         header {
-            background: linear-gradient(135deg, var(--light-pink) 0%, var(--primary-purple) 100%);
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 10% , #fbc2eb 30%, #a18cd1 70%, var(--deep-purple) 100%);
             color: white;
-            padding: 4rem 2rem;
+            padding: 6rem 1.5rem 8rem 1.5rem;
             text-align: center;
-            border-bottom-left-radius: 40px;
-            border-bottom-right-radius: 40px;
-            box-shadow: 0 10px 20px rgba(138, 43, 226, 0.2);
+            border-bottom-left-radius: 50% 20px;
+            border-bottom-right-radius: 50% 20px;
+            box-shadow: 0 15px 30px rgba(75, 0, 130, 0.15);
+            position: relative;
         }
 
         header h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
+            font-weight: 900;
             margin-bottom: 1rem;
-            line-height: 1.2;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            line-height: 1.1;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.15);
         }
 
         header p {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 600;
             max-width: 700px;
             margin: 0 auto;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            opacity: 0.95;
         }
 
-        /* Containers */
+        /* --- CONTAINER --- */
         .container {
-            max-width: 900px;
-            margin: -2rem auto 0 auto;
-            padding: 2rem 1.5rem;
+            max-width: 800px;
+            margin: -4rem auto 0 auto;
+            padding: 0 1.5rem 4rem 1.5rem;
             position: relative;
             z-index: 10;
         }
 
-        /* Cards */
-        .card {
-            background: white;
-            border-radius: 20px;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-            border-top: 6px solid var(--primary-pink);
-            transition: transform 0.3s ease;
+        /* --- INTERATIVIDADE: ACORDEÕES --- */
+        .accordion {
+            margin-bottom: 1.5rem;
         }
 
-        .card h2 {
+        /* O segredo da interatividade sem JS: Input Checkbox Escondido */
+        .accordion-input {
+            position: absolute;
+            opacity: 0;
+            z-index: -1;
+        }
+
+        /* Estilo do Título do Acordeão (Botão) */
+        .accordion-label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.8rem 2rem;
+            background: var(--card-bg);
             color: var(--dark-purple);
-            margin-bottom: 1.2rem;
-            font-size: 1.8rem;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 0.5rem;
+            font-weight: 700;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 2px solid transparent;
         }
 
-        .card p {
+        .accordion-label:hover {
+            transform: translateY(-3px);
+            border-color: #fbc2eb;
+        }
+
+        /* Ícone de Seta (Gira na interação) */
+        .accordion-label::after {
+            content: '\276F'; /* Seta simples */
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            transition: var(--transition);
+            font-size: 1rem;
+            color: var(--primary-pink);
+        }
+
+        /* Conteúdo Escondido */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            background: var(--card-bg);
+            transition: var(--transition);
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 15px 25px rgba(0,0,0,0.03);
+            margin-top: -10px; /* Sobrepõe levemente o label */
+            padding: 0 2rem; /* Padding horizontal inicial, vertical é 0 */
+        }
+
+        /* Lógica de Ativação (Quando o checkbox é marcado) */
+        .accordion-input:checked ~ .accordion-label {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            background: linear-gradient(135deg, #fff 0%, #fff 90%, #fbc2eb11 100%);
+        }
+
+        .accordion-input:checked ~ .accordion-label::after {
+            transform: rotate(90deg);
+        }
+
+        .accordion-input:checked ~ .accordion-content {
+            max-height: 1000px; /* Altura grande o suficiente para o conteúdo */
+            padding: 2rem; /* Adiciona padding vertical ao expandir */
+            border-top: 1px solid #eee;
+        }
+
+        /* --- ESTILOS DE CONTEÚDO DENTRO DO ACORDEÃO --- */
+        .content-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .content-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.2rem;
+        }
+
+        .icon-box {
+            font-size: 1.5rem;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .text-box p {
             color: var(--text-light);
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
-        /* Listas */
-        ul {
+        /* Listas Estilizadas */
+        .styled-list {
             list-style: none;
-            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1rem;
         }
 
-        ul li {
-            margin-bottom: 0.8rem;
+        .styled-list li {
             position: relative;
-            padding-left: 1.8rem;
+            padding-left: 2rem;
             color: var(--text-light);
         }
 
-        ul li::before {
-            content: '💜';
+        .styled-list li::before {
+            content: '✓';
             position: absolute;
             left: 0;
-            top: 2px;
-            font-size: 1rem;
+            color: var(--primary-pink);
+            font-weight: 900;
         }
 
-        /* Call to Action */
-        .cta-box {
-            background: linear-gradient(135deg, var(--dark-purple) 0%, var(--primary-purple) 100%);
+        /* --- ILUSTRAÇÕES CONCEITUAIS (CSS PURO) --- */
+        .illustration-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+
+        /* Gráfico de Pizza Conceitual para Estatísticas */
+        .stat-chart {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: conic-gradient(
+                var(--primary-pink) 0% 15%, /* 15% afetadas */
+                #eee 15% 100% /* O resto */
+            );
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .stat-chart::after {
+            content: '15%';
+            font-weight: 900;
+            font-size: 1.5rem;
             color: white;
-            padding: 2.5rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+
+        /* Ovário Conceitual com Endometrioma */
+        .ovary-concept {
+            width: 130px;
+            height: 80px;
+            background: #ffcccc;
+            border-radius: 50px;
+            position: relative;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+        }
+        .ovary-concept::after {
+            content: '🍫'; /* Endometrioma (Cisto de Chocolate) */
+            font-size: 2rem;
+            position: absolute;
+            top: 20px;
+            left: 50px;
+        }
+
+        /* Útero/Tuba Conceitual (Barreira Mecânica) */
+        .tube-barrier {
+            width: 140px;
+            height: 60px;
+            position: relative;
+        }
+        .tube-barrier::before { /* A Tuba */
+            content: '';
+            position: absolute;
+            width: 100%; height: 15px;
+            background: #eee;
+            top: 22px; border-radius: 10px;
+        }
+        .tube-barrier::after { /* O Bloqueio */
+            content: '🚫';
+            font-size: 2rem;
+            position: absolute;
+            left: 55px; top: 12px;
+        }
+
+        /* --- CALL TO ACTION & FOOTER --- */
+        .cta-box {
+            background: linear-gradient(135deg, var(--dark-purple) 0%, var(--deep-purple) 100%);
+            color: white;
+            padding: 3rem 2rem;
             border-radius: 20px;
             text-align: center;
             margin-top: 3rem;
-            box-shadow: 0 10px 20px rgba(75, 0, 130, 0.3);
+            box-shadow: 0 15px 35px rgba(75, 0, 130, 0.3);
         }
+        .cta-box h3 { font-size: 1.8rem; margin-bottom: 1rem; font-weight: 900; }
 
-        .cta-box h3 {
-            margin-bottom: 1rem;
-            font-size: 1.8rem;
-        }
-
-        .cta-box p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        /* Footer */
         footer {
             text-align: center;
-            padding: 2rem;
+            padding: 3rem 2rem;
             color: #888;
             font-size: 0.9rem;
-            margin-top: 2rem;
         }
 
-        /* Mobile Optimization */
+        /* --- OTIMIZAÇÃO MOBILE --- */
         @media (max-width: 768px) {
-            header {
-                padding: 3rem 1.5rem 4rem 1.5rem;
-            }
-            header h1 {
-                font-size: 2rem;
-            }
-            .card {
-                padding: 1.5rem;
-            }
-            .card h2 {
-                font-size: 1.5rem;
-            }
-            .container {
-                margin-top: -3rem;
-            }
+            header { padding: 4rem 1.5rem 6rem 1.5rem; }
+            header h1 { font-size: 2.1rem; }
+            header p { font-size: 1rem; }
+            .container { margin-top: -3rem; padding: 0 1rem 3rem 1rem; }
+            .accordion-label { padding: 1.3rem 1.5rem; font-size: 1.1rem; }
+            .accordion-content { padding: 0 1.5rem; }
+            .accordion-input:checked ~ .accordion-content { padding: 1.5rem; }
+            .content-item { flex-direction: column; gap: 0.5rem; align-items: center; text-align: center; }
+            .content-item .icon-box { margin-bottom: 0.5rem; }
+            .tube-barrier, .ovary-concept { transform: scale(0.9); }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Guia Essencial da <br>Endometriose Pélvica</h1>
-        <p>Um mergulho denso e estruturado na Fisiopatologia, Diagnóstico e Manejo Integrado para a Saúde da Mulher.</p>
+        <h1>Guia Interativo da<br>Endometriose</h1>
+        <p>Aprenda, visualize e memorize os pilares essenciais da saúde sistêmica feminina.</p>
     </header>
 
     <div class="container">
         
-        <section class="card">
-            <h2>O que é a Endometriose?</h2>
-            <p>A endometriose pélvica é uma afecção ginecológica crônica, sistêmica, estrogênio-dependente e de caráter profundamente inflamatório. Define-se pela presença de tecido semelhante ao endométrio se desenvolvendo fora da cavidade uterina.</p>
-            <p>A teoria clássica da menstruação retrógrada não explica tudo: é o colapso da vigilância imunológica e o microambiente inflamatório crônico que permitem que essas células sobrevivam e criem aderências na pelve.</p>
-            <p><strong>Impacto Global:</strong> Afeta entre <span class="highlight">5% e 15% das mulheres</span> em idade reprodutiva, ultrapassando 190 milhões de indivíduos no mundo.</p>
-        </section>
+        <div class="accordion">
+            <input type="checkbox" name="acc" id="acc1" class="accordion-input">
+            <label for="acc1" class="accordion-label">
+                <span>🦠 O que é a Doença?</span>
+            </label>
+            <div class="accordion-content content-section">
+                <div class="content-item">
+                    <div class="icon-box">📌</div>
+                    <div class="text-box">
+                        <p>É uma afecção ginecológica <strong>crônica</strong>, <strong>sistêmica</strong> e de caráter profundamente <strong class="highlight-pink">inflamatório</strong>.</p>
+                        <p>Define-se pela presença de tecido semelhante ao endométrio se desenvolvendo <strong>fora do útero</strong>.</p>
+                    </div>
+                </div>
+                
+                <div class="content-item">
+                    <div class="icon-box">📊</div>
+                    <div class="text-box">
+                        <p><strong>Impacto Global Devastador:</strong> Afeta entre <strong class="highlight-pink">5% e 15% das mulheres</strong> em idade reprodutiva.</p>
+                        <div class="illustration-container">
+                            <div class="stat-chart"></div> </div>
+                        <p style="font-size: 0.8rem; text-align: center;">Isso representa mais de 190 milhões de mulheres no mundo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <section class="card">
-            <h2>Os Três Fenótipos da Doença</h2>
-            <p>A doença não é igual para todas e possui apresentações clínicas e morfológicas distintas:</p>
-            <ul>
-                <li><strong>Peritoneal Superficial:</strong> Lesões no peritônio pélvico, altamente vascularizadas, de difícil detecção por exames comuns, mas com grande correlação à dor crônica.</li>
-                <li><strong>Endometrioma Ovariano:</strong> Cistos nos ovários com sangue espesso, escuro e inveterado. Implicam risco significativo de comprometimento da reserva ovariana.</li>
-                <li><strong>Infiltrativa Profunda:</strong> Forma mais grave, invadindo tecidos por mais de 5mm. Afeta reto, bexiga, ureteres e vagina, causando severas distorções anatômicas.</li>
-            </ul>
-        </section>
+        <div class="accordion">
+            <input type="checkbox" name="acc" id="acc2" class="accordion-input">
+            <label for="acc2" class="accordion-label">
+                <span>💡 Os Sintomas: Decore os "4 Ds da Dor"</span>
+            </label>
+            <div class="accordion-content content-section">
+                <p>O tempo médio para o diagnóstico no Brasil é de estarrecedores <strong class="highlight-pink">12,1 anos</strong>. Não normalize a dor. Memorize os sinais clássicos:</p>
+                
+                <ul class="styled-list">
+                    <li><strong>Dismenorreia:</strong> Cólicas menstruais de intensidade severa (incapacitantes).</li>
+                    <li><strong>Dispareunia:</strong> Dor aguda durante ou após a relação sexual (penetração profunda).</li>
+                    <li><strong>Disquezia:</strong> Dor lancinante para evacuar, principalmente durante o período menstrual.</li>
+                    <li><strong>Disúria:</strong> Dor ou desconforto ao urinar (pode incluir sangue na urina).</li>
+                </ul>
+                
+                <p style="background: #fbc2eb22; padding: 1rem; border-radius: 10px; border-left: 4px solid var(--primary-pink); font-size: 0.9rem;">
+                    <strong>⚠️ Alerta na Adolescência:</strong> Fique atenta a cólicas incapacitantes logo após a menarca e faltas frequentes na escola.
+                </p>
+            </div>
+        </div>
 
-        <section class="card">
-            <h2>A Arquitetura da Dor e Sinais de Alerta</h2>
-            <p>No Brasil, o tempo médio entre o início dos sintomas e o diagnóstico é de alarmantes <span class="highlight">12,1 anos</span>. A dor gerada é neuroangiogênica (fibras nervosas invadem as lesões) e não deve ser normalizada.</p>
-            <ul>
-                <li><strong>Dismenorreia Secundária:</strong> Cólicas de intensidade severa que não respondem à analgesia convencional.</li>
-                <li><strong>Dispareunia de Profundidade:</strong> Dor aguda durante a relação sexual, indicando infiltração no fundo de saco de Douglas ou ligamentos uterossacros.</li>
-                <li><strong>Disquezia e Disúria:</strong> Dor lancinante para evacuar (acometimento intestinal) e dor ou sangue na urina (acometimento do trato urinário).</li>
-            </ul>
-        </section>
+        <div class="accordion">
+            <input type="checkbox" name="acc" id="acc3" class="accordion-input">
+            <label for="acc3" class="accordion-label">
+                <span>🚫 Entenda o Elo com a Infertilidade</span>
+            </label>
+            <div class="accordion-content content-section">
+                <p>A infertilidade atrelada à endometriose age em três frentes principais:</p>
+                
+                <div class="content-item">
+                    <div class="icon-box">🧱</div>
+                    <div class="text-box">
+                        <p><strong>1. Barreira Mecânica:</strong> Aderências fibrosas bloqueiam fisicamente o transporte de óvulos e espermatozoides pelas tubas uterinas.</p>
+                        <div class="illustration-container">
+                            <div class="tube-barrier"></div> </div>
+                    </div>
+                </div>
 
-        <section class="card">
-            <h2>Impactos na Fertilidade</h2>
-            <p>A infertilidade atrelada à endometriose é devastadora e atua em várias frentes:</p>
-            <ul>
-                <li><strong>Barreiras Mecânicas:</strong> Aderências fibrosas encaram ovários e tubas, bloqueando fisicamente o transporte de óvulos e espermatozoides.</li>
-                <li><strong>Microambiente Tóxico:</strong> O fluido peritoneal saturado de citocinas inflamatórias causa estresse oxidativo, danificando a qualidade genética e metabólica dos óvulos.</li>
-                <li><strong>Endométrio Hostil:</strong> O tecido desenvolve resistência à progesterona, reduzindo drasticamente as taxas de implantação do embrião, mesmo em fertilizações in vitro (FIV).</li>
-            </ul>
-        </section>
+                <div class="content-item">
+                    <div class="icon-box">🧪</div>
+                    <div class="text-box">
+                        <p><strong>2. Microambiente Tóxico:</strong> O fluido peritoneal fica saturado de substâncias inflamatórias que danificam a qualidade dos óvulos.</p>
+                    </div>
+                </div>
 
-        <section class="card">
-            <h2>Diagnóstico Contemporâneo</h2>
-            <p>As diretrizes globais (ESHRE 2022/2024) transformaram a investigação clínica. A laparoscopia cirúrgica deixou de ser o único "padrão-ouro" obrigatório para firmar o diagnóstico.</p>
-            <ul>
-                <li><strong>Ultrassonografia Transvaginal (USTV) com Preparo Intestinal:</strong> O exame de primeira linha. Altamente eficaz para detecção de endometriomas e lesões profundas no compartimento posterior.</li>
-                <li><strong>Ressonância Magnética (RM) da Pelve:</strong> Exame complementar de altíssimo valor panorâmico para mapeamento de invasão de órgãos vizinhos.</li>
-                <li><em>Atenção:</em> Marcadores séricos (como o exame de sangue CA-125) têm baixíssima sensibilidade e não servem para rastreio ou diagnóstico.</li>
-            </ul>
-        </section>
+                <div class="content-item">
+                    <div class="icon-box">🛑</div>
+                    <div class="text-box">
+                        <p><strong>3. Endométrio Hostil:</strong> O tecido desenvolve resistência à progesterona, reduzindo as taxas de implantação do embrião.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <section class="card">
-            <h2>Manejo, Cirurgia e Novidades no SUS (2025)</h2>
-            <p>O objetivo é suprimir hormônios e inflamação para bloquear a progressão. Na rede pública do SUS, tecnologias inovadoras foram adicionadas recentemente:</p>
-            <ul>
-                <li><strong>Novidades do SUS:</strong> Inclusão do DIU de Levonorgestrel (DIU-LNG), que atua por até cinco anos, e do Desogestrel, que agora pode ser prescrito de forma precoce, sem necessidade prévia de imagem complexa.</li>
-                <li><strong>Abordagem Cirúrgica:</strong> A recomendação atual favorece cirurgias de <strong>excisão completa</strong> das lesões, descartando técnicas antigas de simples ablação/cauterização superficial que resultam em altas taxas de recidiva. Para preservar a fertilidade, a ressecção deve ser meticulosa e avaliada através do Endometriosis Fertility Index (EFI).</li>
-            </ul>
-        </section>
+        <div class="accordion">
+            <input type="checkbox" name="acc" id="acc4" class="accordion-input">
+            <label for="acc4" class="accordion-label">
+                <span>🔍 Como é o Diagnóstico Moderno?</span>
+            </label>
+            <div class="accordion-content content-section">
+                <p>O padrão-ouro mudou. Hoje, a investigação foca em exames de imagem de alta precisão:</p>
+                
+                <ul class="styled-list">
+                    <li><strong>Ultrassonografia Transvaginal (USTV) com Preparo Intestinal:</strong> Exame de primeira linha para detectar endometriomas e lesões profundas.</li>
+                    <li><strong>Ressonância Magnética (RM) da Pelve:</strong> Fundamental para mapear invasão em órgãos vizinhos.</li>
+                </ul>
+                <p style="font-size: 0.8rem; color: #888;">*A laparoscopia cirúrgica não é mais obrigatória para fechar o diagnóstico clínico inicial.</p>
+            </div>
+        </div>
 
-        <section class="card">
-            <h2>Impactos Sistêmicos e Reabilitação Integrada</h2>
-            <p>A visão moderna trata a endometriose como uma síndrome sistêmica, exigindo consórcios multidisciplinares:</p>
-            <ul>
-                <li><strong>Risco Cardiovascular e Autoimune:</strong> A inflamação sistêmica causa disfunção endotelial (risco isquêmico) e possui grande intersecção genética com doenças autoimunes como Lúpus, Doença de Crohn e Tireoidite de Hashimoto.</li>
-                <li><strong>Nutrição:</strong> Necessidade estrita de restringir carnes vermelhas e embutidos (pró-inflamatórios) e elevar a ingestão de Ômega-3 e antioxidantes para blindar as células.</li>
-                <li><strong>Fisioterapia Pélvica:</strong> Indispensável para tratar o espasmo muscular crônico e as fáscias endurecidas causadas por anos de dor contínua.</li>
-                <li><strong>Saúde Mental:</strong> O fardo da dor, as falhas diagnósticas prolongadas e a angústia da infertilidade geram uma neurotoxicidade que precipita quadros severos de Burnout, depressão e colapso psicossocial. O apoio psiquiátrico e a psicoterapia cognitiva não são opcionais, são essenciais.</li>
-            </ul>
-        </section>
+        <div class="accordion">
+            <input type="checkbox" name="acc" id="acc5" class="accordion-input">
+            <label for="acc5" class="accordion-label">
+                <span>💊 Tratamento, Cirurgia e Novidades SUS (2025)</span>
+            </label>
+            <div class="accordion-content content-section">
+                
+                <div class="content-item">
+                    <div class="icon-box">🏥</div>
+                    <div class="text-box">
+                        <p><strong>Manejo Clínico (SUS 2025):</strong> O SUS agora oferece gratuitamente o <strong>DIU de Levonorgestrel (DIU-LNG)</strong> e o <strong>Desogestrel</strong> oral para o bloqueio hormonal precoce.</p>
+                    </div>
+                </div>
+
+                <div class="content-item">
+                    <div class="icon-box">✂️</div>
+                    <div class="text-box">
+                        <p><strong>Abordagem Cirúrgica:</strong> A recomendação atual favorece a <strong class="highlight-pink">excisão completa</strong> das lesões, descartando técnicas antigas de simples ablação (cauterização superficial), que têm altas taxas de recidiva.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion">
+            <input type="checkbox" name="acc" id="acc6" class="accordion-input">
+            <label for="acc6" class="accordion-label">
+                <span>🧠 Visão Sistêmica e Reabilitação Integrada</span>
+            </label>
+            <div class="accordion-content content-section">
+                <p>A endometriose é uma síndrome que afeta todo o corpo, exigindo apoio multidisciplinar:</p>
+                
+                <ul class="styled-list">
+                    <li><strong>Nutrição:</strong> Restrição de carnes vermelhas e embutidos; foco em Ômega-3 e antioxidantes.</li>
+                    <li><strong>Fisioterapia Pélvica:</strong> Indispensável para tratar tensões musculares e fáscias endurecidas pela dor crônica.</li>
+                    <li><strong>Saúde Mental:</strong> Apoio psicológico é essencial para lidar com o esgotamento, ansiedade crônica e Burnout gerados pela doença.</li>
+                </ul>
+                
+                <p style="background: #fbc2eb22; padding: 1rem; border-radius: 10px; font-size: 0.9rem;">
+                    <strong>🩺 Atenção Cardiovascular e Autoimune:</strong> A inflamação sistêmica aumenta o risco cardiovascular e possui intersecção genética com doenças como Lúpus e Hashimoto.
+                </p>
+            </div>
+        </div>
 
         <div class="cta-box">
-            <h3>Informação Muda Realidades</h3>
-            <p>A endometriose pélvica é incurável, mas não incontrolável. A divulgação científica de qualidade aliada ao diagnóstico precoce salva o futuro reprodutivo, o bem-estar psicológico e a funcionalidade orgânica de milhares de mulheres todos os dias.</p>
+            <h3>Conhecimento é Poder</h3>
+            <p>O diagnóstico precoce salva o futuro reprodutivo e o bem-estar psicológico de milhões de mulheres. Compartilhe informação de qualidade.</p>
         </div>
 
     </div>
 
     <footer>
-        <p>Desenvolvido com foco na conscientização, saúde sistêmica feminina e divulgação de conhecimento estruturado.</p>
+        <p>Desenvolvido para conscientização e educação em saúde feminina sistêmica.</p>
     </footer>
 
 </body>
