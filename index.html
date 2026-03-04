@@ -149,7 +149,7 @@
         }
 
         .accordion-input:checked ~ .accordion-content {
-            max-height: 2000px; /* Aumentado para acomodar mais texto médico */
+            max-height: 5000px;
             padding: 2rem;
             border-top: 1px solid #f0f0f0;
             border-left: 1px solid rgba(138, 43, 226, 0.1);
@@ -207,6 +207,27 @@
             background-color: var(--primary-pink);
         }
 
+        /* Tabelas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(138, 43, 226, 0.1);
+            color: var(--text-light);
+        }
+
+        th {
+            background-color: rgba(255, 20, 147, 0.05);
+            color: var(--dark-purple);
+            font-weight: 700;
+        }
+
         /* --- CALL TO ACTION & FOOTER --- */
         .cta-box {
             background: linear-gradient(135deg, var(--dark-purple) 0%, var(--deep-purple) 100%);
@@ -234,6 +255,7 @@
             .accordion-label { padding: 1.3rem 1.2rem; font-size: 1.1rem; }
             .accordion-content { padding: 0 1.2rem; }
             .accordion-input:checked ~ .accordion-content { padding: 1.5rem 1.2rem; }
+            table, th, td { display: block; width: 100%; }
         }
     </style>
 </head>
@@ -241,7 +263,7 @@
 
     <header>
         <h1>Guia Interativo da<br>Endometriose</h1>
-        <p>Aprenda e visualize os pilares essenciais da fisiopatologia e reabilitação sistêmica feminina baseada em evidências.</p>
+        <p>Relatório compreensivo sobre a fisiopatologia, diagnóstico e manejo integrado da doença.</p>
     </header>
 
     <div class="container">
@@ -257,21 +279,43 @@
             <div class="accordion-content content-section">
                 <div class="content-item">
                     <div class="text-box">
-                        <p>A endometriose pélvica é uma afecção ginecológica crônica, sistêmica, estrogênio-dependente e de caráter profundamente inflamatório. É caracterizada histologicamente pela presença de glândulas e estroma endometriais ectópicos — ou seja, tecido semelhante ao revestimento uterino proliferando fora da cavidade uterina (como em ovários, peritônio, ligamentos uterossacros e intestino).</p>
-                        <p>A etiopatogenia é multifatorial, englobando a menstruação retrógrada (Teoria de Sampson), metaplasia celômica e falhas na imunovigilância (incapacidade dos macrófagos de depurar o tecido refluído).</p>
+                        [span_0](start_span)<p>A endometriose pélvica é uma afecção ginecológica crônica, sistêmica, estrogênio-dependente e de caráter profundamente inflamatório, definida primariamente pela presença de tecido semelhante ao endométrio (glândulas e estroma endometrial) desenvolvendo-se fora da cavidade uterina[span_0](end_span).</p>
+                        [span_1](start_span)[span_2](start_span)<p>A fisiopatologia baseia-se na Teoria da Menstruação Retrógrada de Sampson, aliada a um colapso da vigilância imunológica[span_1](end_span)[span_2](end_span). [span_3](start_span)Observa-se uma disfunção fenotípica nos macrófagos peritoneais, que perdem sua capacidade fagocítica e passam a secretar fatores de crescimento que promovem a neuroangiogênese[span_3](end_span). [span_4](start_span)[span_5](start_span)Concomitantemente, há diminuição na citotoxicidade das células Natural Killer (NK) e liberação exacerbada de Fator de Necrose Tumoral alfa (TNF-alfa) e Interleucina-6 (IL-6)[span_4](end_span)[span_5](end_span).</p>
                     </div>
                 </div>
                 
                 
-
                 <div class="content-item">
                     <div class="icon-box">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
                     </div>
                     <div class="text-box">
-                        <p><strong>Impacto Global Devastador:</strong> Afeta entre <strong class="highlight-pink">10% e 15% das mulheres</strong> em idade reprodutiva. Representa um contingente populacional superior a 190 milhões de indivíduos, sendo a principal causa de dor pélvica crônica incapacitante.</p>
+                        [span_6](start_span)<p><strong>Impacto Global Devastador:</strong> Afeta entre <strong class="highlight-pink">5% e 15% das mulheres</strong> em idade reprodutiva, o que representa um contingente populacional superior a 190 milhões de indivíduos[span_6](end_span).</p>
                     </div>
                 </div>
+
+                <table>
+                    <tr>
+                        <th>Fenótipo da Endometriose</th>
+                        <th>Características Morfológicas</th>
+                        <th>Desafios Clínicos Associados</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Peritoneal Superficial</strong></td>
+                        [span_7](start_span)<td>Lesões que se espalham pela superfície do peritônio pélvico, altamente vascularizadas[span_7](end_span).</td>
+                        [span_8](start_span)<td>Diagnóstico desafiador, exames de imagem convencionais possuem sensibilidade limitada[span_8](end_span).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Endometrioma Ovariano</strong></td>
+                        [span_9](start_span)<td>Formação de estruturas císticas nos ovários contendo sangue espesso (inveterado)[span_9](end_span).</td>
+                        [span_10](start_span)<td>Risco significativo de comprometimento da reserva folicular ovariana (dano iatrogênico na exérese)[span_10](end_span).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Infiltrativa Profunda</strong></td>
+                        [span_11](start_span)<td>Foco da doença invade o tecido subperitoneal por uma profundidade superior a 5 milímetros[span_11](end_span).</td>
+                        [span_12](start_span)<td>Afeta ligamentos uterossacros, septo retovaginal, intestino, bexiga e ureteres, causando obliteração[span_12](end_span).</td>
+                    </tr>
+                </table>
             </div>
         </div>
 
@@ -280,19 +324,19 @@
             <label for="acc2" class="accordion-label">
                 <div class="accordion-label-content">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-                    <span>Quadro Clínico: Os "4 Ds" e Além</span>
+                    <span>Os Sintomas: Os "4 Ds da Dor" e Atraso Clínico</span>
                 </div>
             </label>
             <div class="accordion-content content-section">
-                <p>O tempo médio entre o início dos sintomas e a confirmação diagnóstica definitiva ainda é um grave problema de saúde pública, durando de <strong class="highlight-pink">7 a 10 anos</strong>. A apresentação clínica clássica é norteada pelos "4 Ds", associados à neuropatia e sensibilização central da dor:</p>
+                [span_13](start_span)<p>No Brasil, dados epidemiológicos revelam que o tempo médio entre o início dos sintomas e a confirmação diagnóstica definitiva é de estarrecedores <strong class="highlight-pink">12,1 anos</strong>[span_13](end_span). [span_14](start_span)A dor é multicausal, mediada pela tração mecânica de aderências densas e por alta neuroangiogênese recrutando fibras nervosas sensoriais[span_14](end_span).</p>
                 
                 <ul class="styled-list">
-                    <li><strong>Dismenorreia Secundária:</strong> Cólicas menstruais de intensidade severa, progressivas, que frequentemente tornam a paciente refratária a AINEs (anti-inflamatórios não esteroidais) convencionais.</li>
-                    <li><strong>Dispareunia de Profundidade:</strong> Dor acentuada durante a penetração vaginal profunda, frequentemente associada a nódulos no septo retovaginal e ligamentos uterossacros.</li>
-                    <li><strong>Disquezia:</strong> Dor aguda e tenesmo à evacuação, manifestando-se com maior intensidade no período perimenstrual, sugerindo infiltração intestinal (reto/sigmoide).</li>
-                    <li><strong>Disúria:</strong> Dor à micção, polaciúria ou hematúria catamenial, indicando possível acometimento do trato urinário inferior (bexiga e ureteres).</li>
+                    [span_15](start_span)<li><strong>Dismenorreia Secundária:</strong> Cólicas menstruais de intensidade severa que não respondem satisfatoriamente à analgesia convencional, frequentemente causando absenteísmo[span_15](end_span).</li>
+                    [span_16](start_span)<li><strong>Dispareunia de Profundidade:</strong> Dor acentuada durante a penetração vaginal profunda na relação sexual, indicando acometimento do fundo de saco de Douglas ou ligamentos uterossacros[span_16](end_span).</li>
+                    [span_17](start_span)<li><strong>Disquezia:</strong> Dor aguda e lancinante à evacuação, especialmente durante o período perimenstrual, associada à infiltração de endometriose profunda na parede anterior do reto ou cólon sigmoide[span_17](end_span).</li>
+                    [span_18](start_span)<li><strong>Disúria:</strong> Dor à micção, polaciúria (aumento da frequência urinária) e hematúria (sangue na urina) cíclica[span_18](end_span).</li>
                 </ul>
-                <p><strong>Sintomas Adicionais:</strong> Dor Pélvica Crônica (DPC) acíclica, distensão abdominal crônica ("endo-belly") e Síndrome da Fadiga Crônica mediada pelo estado pró-inflamatório constante.</p>
+                [span_19](start_span)<p>Pacientes também relatam manifestações atípicas, como dor referida na ponta do ombro (sinal de irritação do nervo frênico) e dor torácica, fortes indicadores de endometriose torácica extrapélvica[span_19](end_span). [span_20](start_span)Na adolescência, a baixa resposta a analgésicos (AINEs) e queixas gastrointestinais atípicas para a idade (presentes em 56% das adolescentes com a patologia) exigem investigação meticulosa[span_20](end_span).</p>
             </div>
         </div>
 
@@ -301,18 +345,18 @@
             <label for="acc3" class="accordion-label">
                 <div class="accordion-label-content">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                    <span>A Fisiopatologia da Infertilidade</span>
+                    <span>O Elo com a Infertilidade</span>
                 </div>
             </label>
             <div class="accordion-content content-section">
-                <p>A endometriose é encontrada em até 50% das mulheres com infertilidade. Esse comprometimento reprodutivo age em três frentes principais:</p>
+                [span_21](start_span)<p>A taxa de prevalência de dificuldades reprodutivas é exponencialmente maior nas portadoras, englobando toxicidades moleculares e barreiras físicas[span_21](end_span):</p>
                 
                 <div class="content-item">
                     <div class="icon-box">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
                     </div>
                     <div class="text-box">
-                        <p><strong>1. Distorção Anatômica e Mecânica:</strong> A inflamação crônica induz a formação de traves fibróticas (aderências) que distorcem a anatomia tubo-ovariana. Isso pode obliterar o fundo de saco de Douglas (pelve congelada) ou causar aderência entre os ovários ("kissing ovaries"), impedindo a captação do oócito pelas trompas de Falópio.</p>
+                        <p><strong>1. [span_22](start_span)Barreira Mecânica:</strong> Em estágios avançados (ASRM III e IV), tecidos cicatriciais causam o encarceramento dos ovários e obliteram os recessos pélvicos, impossibilitando mecanicamente a captação do oócito liberado[span_22](end_span).</p>
                     </div>
                 </div>
 
@@ -321,7 +365,7 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
                     </div>
                     <div class="text-box">
-                        <p><strong>2. Microambiente Peritoneal Tóxico:</strong> O fluido peritoneal concentra altas taxas de macrófagos ativados, prostaglandinas e citocinas inflamatórias (IL-6, TNF-alfa). Esse estresse oxidativo prejudica a motilidade espermática, a qualidade oocitária e o desenvolvimento embrionário inicial.</p>
+                        <p><strong>2. [span_23](start_span)[span_24](start_span)Toxicidade Folicular:</strong> O fluido peritoneal saturado de macrófagos ativados induz apoptose no microambiente folicular, prejudicando o desenvolvimento e a competência genética/metabólica de oócitos[span_23](end_span)[span_24](end_span).</p>
                     </div>
                 </div>
 
@@ -330,7 +374,7 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19.69 14a6.9 6.9 0 0 0 .31-2V5l-8-3-3.16 1.18"></path><path d="M4.73 4.73L4 5v7c0 5.96 4.06 10.94 9 12 1.58-.34 3.03-1.07 4.27-2.07"></path><line x1="2" y1="2" x2="22" y2="22"></line></svg>
                     </div>
                     <div class="text-box">
-                        <p><strong>3. Endométrio Hostil e Baixa Reserva:</strong> Há resistência à progesterona no endométrio eutópico, prejudicando a receptividade e a implantação na janela embrionária. Adicionalmente, a presença de endometriomas ovarianos diminui a reserva folicular (medida pelo Hormônio Antimülleriano - HAM).</p>
+                        <p><strong>3. [span_25](start_span)[span_26](start_span)Endométrio Hostil:</strong> O endométrio tópico demonstra fenótipo molecular aberrante e acentuada resistência à ação da progesterona, reduzindo drasticamente as taxas de implantação embrionária natural e em FIV[span_25](end_span)[span_26](end_span).</p>
                     </div>
                 </div>
             </div>
@@ -345,14 +389,13 @@
                 </div>
             </label>
             <div class="accordion-content content-section">
-                <p>O paradigma mudou: o diagnóstico clínico aliado à imagem de ponta substituiu a laparoscopia como investigação de primeira linha. Marcadores séricos como o CA-125 têm baixa especificidade isoladamente.</p>
-                
+                [span_27](start_span)<p>As diretrizes globais (ESHRE 2022/2024) descontinuaram formalmente a obrigatoriedade da laparoscopia cirúrgica como único "padrão-ouro" para o diagnóstico[span_27](end_span). [span_28](start_span)A investigação hoje foca na tríade clínica e imagem especializada[span_28](end_span):</p>
                 
                 
                 <ul class="styled-list">
-                    <li><strong>Ultrassonografia Transvaginal (USTV) com Preparo Intestinal:</strong> O exame padrão-ouro não-invasivo. Realizado por ultrassonografista especializado, permite mapear compartimentos pélvicos, avaliar o deslizamento dos órgãos (sinal do deslizamento) e identificar endometriose profunda infiltrativa (EDI).</li>
-                    <li><strong>Ressonância Magnética (RM) da Pelve:</strong> Protocolo direcionado para endometriose. Excelente para estadiamento pré-operatório, mapeamento panorâmico de lesões complexas, infiltração de nervos pélvicos e lesões acima da pelve verdadeira.</li>
-                    <li><strong>Laparoscopia Diagnóstica:</strong> Hoje reservada para casos de imagem negativa com forte suspeita clínica ou diretamente associada ao tratamento excisional com biópsia (confirmação histológica definitiva).</li>
+                    [span_29](start_span)<li><strong>Ultrassonografia Transvaginal (USTV) com Preparo Intestinal:</strong> Estabelecida como o exame de imagem de primeira linha[span_29](end_span). [span_30](start_span)Oferece alta sensibilidade para endometriomas e lesões de endometriose profunda no compartimento posterior[span_30](end_span).</li>
+                    [span_31](start_span)<li><strong>Ressonância Magnética (RM) da Pelve:</strong> Ferramenta complementar de altíssimo valor de precisão[span_31](end_span). [span_32](start_span)Superior à USTV na interpretação e mapeamento panorâmico de lesões infiltrativas complexas multicompartimentais[span_32](end_span).</li>
+                    [span_33](start_span)<li><strong>Alerta sobre o CA-125:</strong> A dosagem de marcadores séricos não é recomendada como teste de rastreio, diagnóstico ou para descartar a presença da doença, devido à sua baixíssima sensibilidade[span_33](end_span).</li>
                 </ul>
             </div>
         </div>
@@ -362,7 +405,7 @@
             <label for="acc5" class="accordion-label">
                 <div class="accordion-label-content">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
-                    <span>Manejo Clínico, Cirúrgico e o SUS</span>
+                    <span>Manejo Clínico, Cirúrgico e o SUS (2025)</span>
                 </div>
             </label>
             <div class="accordion-content content-section">
@@ -372,7 +415,7 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 5l9.5 9.5a5.5 5.5 0 0 1-7.78 7.78L2.22 12.78a5.5 5.5 0 0 1 7.78-7.78z"></path><line x1="13.5" y1="6.5" x2="17.5" y2="10.5"></line></svg>
                     </div>
                     <div class="text-box">
-                        <p><strong>Bloqueio Hormonal e Farmacologia:</strong> O tratamento clínico visa a atrofia das lesões e controle da dor (não cura). Inclui contraceptivos orais combinados contínuos, progestágenos isolados (como Dienogeste e Desogestrel) e análogos de GnRH. O SUS atualizou seus protocolos (PCDT) recentemente, facilitando o acesso ao Sistema Intrauterino de Levonorgestrel (SIU-LNG) e a formulações orais para bloqueio ovulatório eficaz.</p>
+                        [span_34](start_span)[span_35](start_span)<p><strong>Bloqueio Hormonal e Farmacologia:</strong> A terapia de primeira linha envolve contraceptivos combinados e progestágenos isolados (dienogeste/desogestrel) para induzir atrofia tecidual[span_34](end_span)[span_35](end_span). [span_36](start_span)[span_37](start_span)Em maio de 2025, o SUS atualizou seus protocolos, disponibilizando gratuitamente o Dispositivo Intrauterino Liberador de Levonorgestrel (DIU-LNG) para supressão contínua por cinco anos e o Desogestrel de acesso precoce, dispensando a necessidade de RM prévia[span_36](end_span)[span_37](end_span).</p>
                     </div>
                 </div>
 
@@ -381,7 +424,7 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" y1="4" x2="8.12" y2="15.88"></line><line x1="14.47" y1="14.48" x2="20" y2="20"></line><line x1="8.12" y1="8.12" x2="12" y2="12"></line></svg>
                     </div>
                     <div class="text-box">
-                        <p><strong>Cirurgia Minimamente Invasiva:</strong> A via laparoscópica ou robótica é a indicada. A técnica padrão-ouro atual é a <strong class="highlight-pink">excisão radical em bloco</strong> (remoção completa da raiz da lesão), com preservação nervosa (nerve-sparing). Técnicas antigas de ablação/cauterização superficial têm altas taxas de recidiva e são desaconselhadas para endometriose profunda.</p>
+                        [span_38](start_span)<p><strong>O Paradigma da Excisão Cirúrgica:</strong> A via minimamente invasiva é recomendada para falhas no controle da algia[span_38](end_span). [span_39](start_span)É vital realizar a excisão completa em bloco dos tecidos doentes, superando clinicamente as antigas técnicas ineficazes de ablação/cauterização superficial[span_39](end_span). [span_40](start_span)[span_41](start_span)Para endometriomas ovarianos, a cistectomia microscópica é superior à drenagem e previne altas taxas de recidiva, embora exija extremo cuidado com os folículos sadios[span_40](end_span)[span_41](end_span).</p>
                     </div>
                 </div>
             </div>
@@ -396,26 +439,26 @@
                 </div>
             </label>
             <div class="accordion-content content-section">
-                <p>A endometriose não é apenas "uma cólica forte", é uma disfunção sistêmica. O manejo exige uma equipe multidisciplinar:</p>
+                [span_42](start_span)<p>O microambiente inflamatório subjacente exige consórcios multidisciplinares de tratamento para reabilitação global do indivíduo[span_42](end_span):</p>
                 
                 <ul class="styled-list">
-                    <li><strong>Risco Imunológico e Cardiovascular:</strong> Estudos apontam disfunção endotelial devido à inflamação crônica, aumentando o risco de patologias isquêmicas. Há também uma co-ocorrência genômica e clínica com doenças autoimunes, como Lúpus Eritematoso Sistêmico (LES), Artrite Reumatoide e Tireoidite de Hashimoto.</li>
-                    <li><strong>Nutrição Anti-inflamatória:</strong> Intervenções dietéticas focadas na redução de citocinas. Redução de gorduras trans, ultraprocessados e carnes vermelhas, com aumento significativo na ingestão de antioxidantes e Ácidos Graxos Ômega-3 (EPA/DHA) para modular as vias das prostaglandinas E2.</li>
-                    <li><strong>Fisioterapia Pélvica:</strong> Essencial para tratar a hipertonia do assoalho pélvico (espasmos musculares secundários à dor contínua), liberação miofascial e tratamento coadjuvante da dispareunia e distúrbios miccionais/evacuatórios.</li>
-                    <li><strong>Neuromodulação e Saúde Mental:</strong> A dor crônica gera "sensibilização central" (o cérebro amplifica os sinais de dor). A psicoterapia (TCC) e psiquiatria são fundamentais para tratar depressão, ansiedade e o Burnout estrutural induzido pelo convívio com a dor limitante.</li>
+                    [span_43](start_span)[span_44](start_span)<li><strong>Atenção Imunológica e Cardiovascular:</strong> A inflamação contínua promove instabilidade no complexo do endotélio arterial sistêmico, deflagrando episódios de insuficiência cardíaca[span_43](end_span)[span_44](end_span). [span_45](start_span)[span_46](start_span)Há concomitância ativa maciça com Lúpus Eritematoso Sistêmico, Artrite Reumatoide, Doença de Crohn e a Tireoidite auto-destrutiva de Hashimoto[span_45](end_span)[span_46](end_span). [span_47](start_span)[span_48](start_span)Teme-se também o raro Carcinoma Celular Claro no ovário, o qual requer monitoramento sistêmico ao invés de pânico com ablação total[span_47](end_span)[span_48](end_span).</li>
+                    [span_49](start_span)<li><strong>Nutrição:</strong> Há uma correlação robusta evidenciando que a alta ingestão de carnes vermelhas exacerba os quadros em até 56% e eleva os níveis séricos de estradiol[span_49](end_span). [span_50](start_span)Protocolos requerem dietas Low FODMAP para o quadro de intestino irritável atrelado e robustos aportes de Ácido Graxo Ômega-3 e vitaminas (C, E, D) para bloquear toxinas de TNF-alfa[span_50](end_span).</li>
+                    [span_51](start_span)[span_52](start_span)<li><strong>Fisioterapia Pélvica:</strong> Imperativa para quebrar tecidos retraídos inflamados via Liberação Miofascial e neuromodulação por eletroestimulação de trigger-points visando curar a hipertonia tensional espasmódica[span_51](end_span)[span_52](end_span).</li>
+                    [span_53](start_span)[span_54](start_span)<li><strong>Saúde Mental e Burnout:</strong> Falhas na validação diagnóstica e dor lancinante crônica acarretam ideação depressiva clínica imuno química, colapso basal estrutural com ansiedade aguda severa sistêmica[span_53](end_span)[span_54](end_span). [span_55](start_span)[span_56](start_span)[span_57](start_span)Isso instala patologicamente o Burnout estrutural psicossomático na desordem de desfalecimento mental diário, exigindo amparo com Terapia Cognitivo-Comportamental e acompanhamento psiquiátrico de rotina[span_55](end_span)[span_56](end_span)[span_57](end_span).</li>
                 </ul>
             </div>
         </div>
 
         <div class="cta-box">
-            <h3>A Informação Salva o Futuro Reprodutivo</h3>
-            <p>O diagnóstico precoce, o manejo cirúrgico especializado e a abordagem multidisciplinar são a chave para a devolução da qualidade de vida e preservação orgânica. Compartilhe ciência.</p>
+            <h3>Conhecimento é Poder e Preservação</h3>
+            <p>O diagnóstico precoce e a abordagem orgânica multidisciplinar salvam a fertilidade feminina e devolvem a dignidade estrutural. Compartilhe o rigor da ciência.</p>
         </div>
 
     </div>
 
     <footer>
-        <p>Desenvolvido para conscientização e educação em saúde feminina sistêmica e baseada em evidências científicas.</p>
+        <p>Desenvolvido para conscientização e educação em saúde sistêmica feminina baseada em evidências sólidas.</p>
     </footer>
 
 </body>
